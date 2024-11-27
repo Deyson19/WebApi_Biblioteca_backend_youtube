@@ -194,7 +194,11 @@ namespace WebApp_SistemaBiblioteca.Services.Implementacion
                }
           }
 
-          private async Task<Prestamo> GetPrestamo(int id) => await _dbContext.Prestamos.FirstOrDefaultAsync(x => x.Id == id);
+          private async Task<Prestamo> GetPrestamo(int id)
+          {
+               var prestamo = await _dbContext.Prestamos.FirstOrDefaultAsync(x => x.Id == id);
+               return prestamo!;
+          }
      }
 
 

@@ -25,11 +25,10 @@ namespace WebApp_SistemaBiblioteca.Controllers
           public async Task<IActionResult> Get()
           {
                var response = await _prestamoService.GetAll();
-               if (response != null)
+               if (response.IsSuccess)
                {
                     return StatusCode(StatusCodes.Status200OK, response);
                }
-               response.IsSuccess = true;
                return StatusCode(StatusCodes.Status204NoContent, response);
           }
           [HttpGet("{idPrestamo}")]
@@ -193,7 +192,7 @@ namespace WebApp_SistemaBiblioteca.Controllers
           {
                if (model == null)
                {
-                    return null;
+                    return null!;
                }
                else
                {
