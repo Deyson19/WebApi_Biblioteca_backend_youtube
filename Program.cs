@@ -43,6 +43,7 @@ if (app.Environment.IsDevelopment())
      app.UseSwaggerUI();
 }
 
+app.UseCors("frontEnd-Angular");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
